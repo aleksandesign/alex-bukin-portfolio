@@ -1110,29 +1110,97 @@ a {
 
 @media (max-width: 400px) {
   :root {
-    /* Keep 16px visual gutters while the 320 frame is zoom-scaled */
-    --section-x: calc(16px * 320 / 100vw);
+    /* 288px = content width inside the 320 frame (16px gutters each side) */
+    --fluid: calc((100vw - 32px) / 288);
+    --section-x: 0px;
+    --title-size: calc(24px * var(--fluid));
+    --title-tracking: calc(-0.72px * var(--fluid));
+    --section-pt: calc(32px * var(--fluid));
+    --section-title-mb: calc(16px * var(--fluid));
+    --hero-pt: calc(16px * var(--fluid));
+    --hero-title-pb: calc(8px * var(--fluid));
+    --hero-title-size: calc(26px * var(--fluid));
+    --hero-title-tracking: calc(-1.3px * var(--fluid));
+    --hero-aside-gap: calc(16px * var(--fluid));
+    --hero-logo-width: calc(261px * var(--fluid));
+    --hero-logo-pair-width: calc(131px * var(--fluid));
+    --hero-logo-circle: calc(72px * var(--fluid));
+    --hero-logo-photo-offset: calc(59px * var(--fluid));
+    --hero-awards-size: calc(10px * var(--fluid));
+    --hero-desc-pt: calc(32px * var(--fluid));
+    --hero-desc-pb: calc(32px * var(--fluid));
+    --hero-desc-text: calc(12px * var(--fluid));
+    --hero-desc-padding: calc(16px * var(--fluid));
+    --nav-pt: calc(16px * var(--fluid));
+    --radius-soft: calc(24px * var(--fluid));
+    --radius-btn: calc(33px * var(--fluid));
+    --case-list-gap: calc(12px * var(--fluid));
+    --pub-grid-gap-x: calc(8px * var(--fluid));
+    --pub-card-h: calc(280px * var(--fluid));
+    --pub-image-h: calc(140px * var(--fluid));
+    --pub-text-p: calc(16px * var(--fluid));
+    --pub-title-size: calc(14px * var(--fluid));
+    --pub-title-tracking: calc(-0.42px * var(--fluid));
+    --pub-title-max-w: calc(208px * var(--fluid));
+    --pub-meta-size: calc(10px * var(--fluid));
+    --pub-meta-tracking: calc(-0.3px * var(--fluid));
+    --link-gap: calc(8px * var(--fluid));
+    --link-icon: calc(75px * var(--fluid));
+    --link-icon-offset: calc(16px * var(--fluid));
+    --link-text-size: calc(10px * var(--fluid));
+    --link-text-tracking: calc(-0.3px * var(--fluid));
+    --link-text-w: calc(109px * var(--fluid));
+    --footer-pt: calc(56px * var(--fluid));
   }
 
   body {
     overflow-x: hidden;
   }
 
-  /* 320 design scaled proportionally: 320px = 1x, 400px = 1.25x */
   .page {
-    width: 320px;
+    width: 100%;
     max-width: none;
     margin: 0;
-    zoom: calc(100vw / 320);
+    padding-inline: 16px;
+    box-sizing: border-box;
   }
-}
 
-@supports not (zoom: 1) {
-  @media (max-width: 400px) {
-    .page {
-      zoom: unset;
-      transform: scale(calc(100vw / 320));
-      transform-origin: top left;
-    }
+  .nav {
+    margin-inline: -16px;
+    padding-inline: 16px;
+  }
+
+  .block-description,
+  .text-footer {
+    margin-inline: -16px;
+    padding-inline: 16px;
+  }
+
+  .section-title,
+  .section:not(.section-publications):not(.section-showcase) {
+    padding-inline: 0;
+  }
+
+  .section.section-publications {
+    margin-right: -16px;
+  }
+
+  .section-publications .section-title,
+  .section-publications .pub-grid {
+    padding-left: 0;
+  }
+
+  .hero-awards {
+    max-width: calc(102px * var(--fluid));
+  }
+
+  .section-publications .pub-card {
+    flex: 0 0 calc(240px * var(--fluid));
+    width: calc(240px * var(--fluid));
+  }
+
+  .section-publications .pub-card .pub-image,
+  .section-publications .pub-card .pub-text {
+    border-radius: calc(24px * var(--fluid));
   }
 }
