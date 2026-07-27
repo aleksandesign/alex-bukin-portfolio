@@ -14,6 +14,9 @@
   --ab-page-bg: #f6f6f6;
   --ab-line: #d9d9d9;
 
+  --nav-pill-bg: rgba(44, 44, 44, 0.7);
+  --nav-pill-blur: 2px;
+
   /* 2800 */
   --section-x: 100px;
   --content-width: 2600px;
@@ -388,7 +391,9 @@ a {
   align-items: center;
   justify-content: center;
   padding: 10px 16px;
-  background: rgba(44, 44, 44, 0.5);
+  background: var(--nav-pill-bg);
+  backdrop-filter: blur(var(--nav-pill-blur));
+  -webkit-backdrop-filter: blur(var(--nav-pill-blur));
   border-radius: 100px;
   color: var(--ab-white-bg);
   font-size: 14px;
@@ -416,7 +421,9 @@ a {
   align-items: center;
   justify-content: center;
   padding: 10px 16px;
-  background: rgba(44, 44, 44, 0.5);
+  background: var(--nav-pill-bg);
+  backdrop-filter: blur(var(--nav-pill-blur));
+  -webkit-backdrop-filter: blur(var(--nav-pill-blur));
   border: 0;
   border-radius: 100px;
   color: var(--ab-white-bg);
@@ -1063,9 +1070,6 @@ a {
     font-size: 10px;
     letter-spacing: -0.2px;
     padding: 10px 16px;
-    background: rgba(44, 44, 44, 0.7);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
   }
 
   .nav-group {
@@ -1101,10 +1105,6 @@ a {
     font-size: 10px;
     letter-spacing: -0.2px;
     padding: 10px 16px;
-  }
-
-  .nav-group .nav-pill {
-    background: var(--ab-black-text);
   }
 }
 
