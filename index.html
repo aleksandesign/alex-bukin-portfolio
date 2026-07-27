@@ -10,11 +10,12 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="viewport">
-    <div class="page">
+  <div class="page">
       <nav class="nav">
         <a href="#" class="nav-pill nav-pill--brand">Александр Букин</a>
-        <div class="nav-group">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">Меню</button>
+        <div class="nav-group" id="nav-menu">
+          <a href="#" class="nav-pill nav-pill--brand nav-pill--in-menu">Александр Букин</a>
           <a href="#cv" class="nav-pill">CV</a>
           <a href="#cases" class="nav-pill">Кейсы</a>
           <a href="#publications" class="nav-pill">Публикации</a>
@@ -30,27 +31,32 @@
             ex. Magnit, ex. VTB
           </h1>
           <div class="hero-aside">
-            <div class="hero-logo" aria-hidden="true">
-              <div class="hero-logo__brand">
-                <img class="hero-logo__circle" src="assets/hero/logo-circle.svg" alt="">
-                <img class="hero-logo__mark" src="assets/hero/logo-mark.svg" alt="">
+            <div class="hero-logo">
+              <div class="hero-logo__pair">
+                <div class="hero-logo__brand">
+                  <img class="hero-logo__circle" src="assets/hero/logo-circle.svg" alt="">
+                  <img class="hero-logo__mark" src="assets/hero/logo-mark.svg" alt="">
+                </div>
+                <img class="hero-logo__photo" src="assets/hero/photo.jpg" alt="Alex Bukin">
               </div>
-              <img class="hero-logo__photo" src="assets/hero/photo.jpg" alt="Alex Bukin">
-            </div>
-            <div class="hero-awards">
-              <p>Awards:</p>
-              <p class="muted">Behance gallery (x2)</p>
-              <p class="muted">Muse Creative Award</p>
-              <p class="muted">Mediabrand</p>
-              <p class="muted">Made on Tilda (x2)</p>
-              <p class="muted">Wolda (x2)</p>
+              <div class="hero-awards">
+                <p>Awards:</p>
+                <p class="muted">Behance gallery (x2)</p>
+                <p class="muted">Muse Creative Award</p>
+                <p class="muted">Mediabrand</p>
+                <p class="muted">Made on Tilda (x2)</p>
+                <p class="muted">Wolda (x2)</p>
+              </div>
             </div>
           </div>
         </div>
+      </header>
+
+      <div class="block-description">
         <div class="hero-description">
           <p>Привет, меня зовут Саша и в дизайне я c 2004 года. С 2017 перешёл в продукт, где прошёл путь от джуна до лида. Как руководитель продуктовых дизайн-команд создаю условия, в которых сильные дизайнеры делают сильные продукты. Работал с B2C и B2B: разрабатывал клиентское приложение банка ВТБ и софт для операторов отделений, CRM для портала медиа-редакции, медицинский суперапп и др. В Магните лидировал вертикаль Ecom: Аптеки, Косметика, Курьерка, Сборка, Рестораны, Посылки и др.</p>
         </div>
-      </header>
+      </div>
 
       <section class="section section-showcase" aria-label="UI showcase">
         <img src="assets/hero/ui-showcase.png" alt="UI concepts collage" width="2600" height="2334" loading="lazy">
@@ -114,7 +120,7 @@
               </div>
             </div>
             <div class="case-visual">
-              <img src="assets/cases/case-1.png" alt="" width="1310" height="860" loading="lazy">
+              <img src="assets/cases/case-1.png?v=2" alt="" width="1310" height="860" loading="lazy">
             </div>
           </article>
 
@@ -126,12 +132,12 @@
                 <span>2026</span>
               </div>
               <div class="case-body">
-                <h3>Большой мердж:<br>Магнит доставка</h3>
+                <h3>Большой мердж:<br>Магнит доставка и Акции</h3>
                 <a href="#" class="btn-case">Подробнее</a>
               </div>
             </div>
             <div class="case-visual">
-              <img src="assets/cases/case-2.png" alt="" width="1310" height="860" loading="lazy">
+              <img src="assets/cases/case-2.png?v=2" alt="" width="1310" height="860" loading="lazy">
             </div>
           </article>
 
@@ -143,12 +149,12 @@
                 <span>2026</span>
               </div>
               <div class="case-body">
-                <h3>Как я переосмыслил механику промокодов и увеличил конверсию в заказ</h3>
+                <h3>Построение работы команды: процессы и артефакты</h3>
                 <a href="#" class="btn-case">Подробнее</a>
               </div>
             </div>
             <div class="case-visual">
-              <img src="assets/cases/case-3.png" alt="" width="1310" height="860" loading="lazy">
+              <img src="assets/cases/case-3.png?v=2" alt="" width="1310" height="860" loading="lazy">
             </div>
           </article>
 
@@ -160,12 +166,12 @@
                 <span>2026</span>
               </div>
               <div class="case-body">
-                <h3>Biodata: дизайн приложения<br>и айдентики</h3>
+                <h3>Biodata: дизайн всех форматов под ключ</h3>
                 <a href="#" class="btn-case">Подробнее</a>
               </div>
             </div>
             <div class="case-visual">
-              <img src="assets/cases/case-biodata.png" alt="" width="1310" height="860" loading="lazy">
+              <img src="assets/cases/case-biodata.png?v=2" alt="" width="1310" height="860" loading="lazy">
             </div>
           </article>
 
@@ -181,7 +187,7 @@
               </div>
             </div>
             <div class="case-visual">
-              <img src="assets/cases/case-ui.png" alt="" width="1310" height="860" loading="lazy">
+              <img src="assets/cases/case-ui.png?v=2" alt="" width="1310" height="860" loading="lazy">
             </div>
           </article>
         </div>
@@ -189,63 +195,65 @@
 
       <section id="publications" class="section section-publications">
         <h2 class="section-title">Публикации</h2>
-        <div class="pub-grid">
+        <div class="pub-scroll">
+          <div class="pub-grid">
           <a class="pub-card" href="https://vc.ru/design/1558154-teper-vy-dizain-lid-kak-vyzhit-i-nachat-performit" target="_blank" rel="noopener">
-            <div class="pub-image"><img src="assets/publications/pub-1.png" alt="" loading="lazy"></div>
+            <div class="pub-image"><picture><source media="(max-width: 768px)" srcset="assets/publications/mobile/pub-1.png"><img src="assets/publications/pub-1.png" alt="" loading="lazy"></picture></div>
             <div class="pub-text">
               <h3>Теперь вы — дизайн-лид. Как выжить и начать перформить</h3>
               <p class="muted">Статья, Vc.ru</p>
             </div>
           </a>
           <a class="pub-card" href="https://ux-marafon.ru/speakers/speaker?id=180" target="_blank" rel="noopener">
-            <div class="pub-image"><img src="assets/publications/pub-2.png" alt="" loading="lazy"></div>
+            <div class="pub-image"><picture><source media="(max-width: 768px)" srcset="assets/publications/mobile/pub-2.png"><img src="assets/publications/pub-2.png" alt="" loading="lazy"></picture></div>
             <div class="pub-text">
               <h3>Менеджер+Дизайнер: как получить максимум эффективности</h3>
               <p class="muted">Видео, «UX-марафон»</p>
             </div>
           </a>
           <a class="pub-card" href="https://habr.com/ru/companies/magnit/articles/893130/" target="_blank" rel="noopener">
-            <div class="pub-image"><img src="assets/publications/pub-3.png" alt="" loading="lazy"></div>
+            <div class="pub-image"><picture><source media="(max-width: 768px)" srcset="assets/publications/mobile/pub-3.png"><img src="assets/publications/pub-3.png" alt="" loading="lazy"></picture></div>
             <div class="pub-text">
               <h3>Дизайн в масштабе: как мы ускорили работу, связав макеты и оргструктуру</h3>
               <p class="muted">Статья, Хабр</p>
             </div>
           </a>
           <a class="pub-card" href="https://vc.ru/marketing/2914735-pereosmyslenie-mehaniki-promokodov-v-prilozhenii-magnit" target="_blank" rel="noopener">
-            <div class="pub-image"><img src="assets/publications/pub-4.png" alt="" loading="lazy"></div>
+            <div class="pub-image"><picture><source media="(max-width: 768px)" srcset="assets/publications/mobile/pub-4.png"><img src="assets/publications/pub-4.png" alt="" loading="lazy"></picture></div>
             <div class="pub-text">
               <h3>Как мы переосмыслили механику промокодов и увеличили конверсию в заказ</h3>
               <p class="muted">Статья, Vc.ru</p>
             </div>
           </a>
           <a class="pub-card" href="https://t.me/magnitdesign/778" target="_blank" rel="noopener">
-            <div class="pub-image"><img src="assets/publications/pub-5.png" alt="" loading="lazy"></div>
+            <div class="pub-image"><picture><source media="(max-width: 768px)" srcset="assets/publications/mobile/pub-5.png"><img src="assets/publications/pub-5.png" alt="" loading="lazy"></picture></div>
             <div class="pub-text">
               <h3>Как прокачать софты без курсов, коучей и магии</h3>
               <p class="muted">Пост, ТГ-канал «Галя, у нас макет!»</p>
             </div>
           </a>
           <a class="pub-card" href="https://www.youtube.com/watch?v=R03SKyf1TKQ&amp;t=1s" target="_blank" rel="noopener">
-            <div class="pub-image"><img src="assets/publications/pub-6.png" alt="" loading="lazy"></div>
+            <div class="pub-image"><picture><source media="(max-width: 768px)" srcset="assets/publications/mobile/pub-6.png"><img src="assets/publications/pub-6.png" alt="" loading="lazy"></picture></div>
             <div class="pub-text">
               <h3>Почему дизайнеров не берут на работу — эфир с Марией Чубиной</h3>
               <p class="muted">Видео, канал «Дизайн тащит»</p>
             </div>
           </a>
           <a class="pub-card" href="https://dsgners.ru/mgntdsgn/13901-portfolio-kak-magnit-kak-privlech-vnimanie-rabotodatelya-s-pomoschyu-klassnyih-keysov" target="_blank" rel="noopener">
-            <div class="pub-image"><img src="assets/publications/pub-7.png" alt="" loading="lazy"></div>
+            <div class="pub-image"><picture><source media="(max-width: 768px)" srcset="assets/publications/mobile/pub-7.png"><img src="assets/publications/pub-7.png" alt="" loading="lazy"></picture></div>
             <div class="pub-text">
               <h3>Портфолио как магнит — как привлечь внимание с помощью классных кейсов</h3>
               <p class="muted">Статья, Dsgners.ru</p>
             </div>
           </a>
           <a class="pub-card" href="https://www.youtube.com/@Aleksandesign/videos" target="_blank" rel="noopener">
-            <div class="pub-image"><img src="assets/publications/pub-8.png" alt="" loading="lazy"></div>
+            <div class="pub-image"><picture><source media="(max-width: 768px)" srcset="assets/publications/mobile/pub-8.png"><img src="assets/publications/pub-8.png" alt="" loading="lazy"></picture></div>
             <div class="pub-text">
               <h3>Интервью проекту Маркировка Марка Серёгина</h3>
               <p class="muted">Видео, канал «Маркировка»</p>
             </div>
           </a>
+        </div>
         </div>
       </section>
 
@@ -283,7 +291,6 @@
         <p>Александр Букин, 2026</p>
         <p class="footer-note">Дизайн — Figma, фронтенд — Cursor</p>
       </footer>
-    </div>
   </div>
 
   <script src="script.js"></script>

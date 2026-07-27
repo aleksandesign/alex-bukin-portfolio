@@ -1,23 +1,3 @@
-function updatePageScale() {
-  const page = document.querySelector(".page");
-  const viewport = document.querySelector(".viewport");
-  if (!page || !viewport) return;
-
-  const designWidth = 2800;
-  const scale = Math.min(1, window.innerWidth / designWidth);
-
-  if (scale < 1) {
-    page.style.transform = `scale(${scale})`;
-    viewport.style.height = `${page.offsetHeight * scale}px`;
-  } else {
-    page.style.transform = "";
-    viewport.style.height = "";
-  }
-}
-
-updatePageScale();
-window.addEventListener("resize", updatePageScale);
-
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", (event) => {
     const id = link.getAttribute("href");
@@ -28,11 +8,38 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 
     event.preventDefault();
     target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    const navGroup = document.getElementById("nav-menu");
+    const navToggle = document.querySelector(".nav-toggle");
+    if (navGroup?.classList.contains("is-open")) {
+      setNavOpen(false);
+    }
   });
 });
 
-if (document.fonts) {
-  document.fonts.ready.then(updatePageScale);
+const navToggle = document.querySelector(".nav-toggle");
+const navGroup = document.getElementById("nav-menu");
+
+function setNavOpen(isOpen) {
+  if (!navToggle || !navGroup) return;
+
+  navGroup.classList.toggle("is-open", isOpen);
+  navToggle.setAttribute("aria-expanded", String(isOpen));
+  navToggle.textContent = isOpen ? "Закрыть" : "Меню";
 }
 
-window.addEventListener("load", updatePageScale);
+if (navToggle && navGroup) {
+  navToggle.addEventListener("click", () => {
+    setNavOpen(!navGroup.classList.contains("is-open"));
+  });
+}
+
+const pubScroll = document.querySelector(".pub-scroll");
+
+if (pubScroll) {
+  pubScroll.scrollLeft = 0;
+
+  window.addEventListener("pageshow", () => {
+    pubScroll.scrollLeft = 0;
+  });
+}
