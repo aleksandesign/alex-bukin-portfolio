@@ -1049,7 +1049,19 @@ a {
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 400px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  /* 320 design scaled proportionally: 320px = 1x, 400px = 1.25x */
+  .page {
+    width: 320px;
+    max-width: 320px;
+    margin-inline: auto;
+    zoom: calc(100vw / 320);
+  }
+
   .nav {
     flex-wrap: wrap;
     gap: 0;
@@ -1107,5 +1119,15 @@ a {
 
   .nav-group .nav-pill {
     background: var(--ab-black-text);
+  }
+}
+
+@supports not (zoom: 1) {
+  @media (max-width: 400px) {
+    .page {
+      zoom: unset;
+      transform: scale(calc(100vw / 320));
+      transform-origin: top center;
+    }
   }
 }
