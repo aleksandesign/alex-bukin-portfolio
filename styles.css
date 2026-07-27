@@ -1109,6 +1109,11 @@ a {
 }
 
 @media (max-width: 400px) {
+  :root {
+    /* Keep 16px visual gutters while the 320 frame is zoom-scaled */
+    --section-x: calc(16px * 320 / 100vw);
+  }
+
   body {
     overflow-x: hidden;
   }
@@ -1116,8 +1121,8 @@ a {
   /* 320 design scaled proportionally: 320px = 1x, 400px = 1.25x */
   .page {
     width: 320px;
-    max-width: 320px;
-    margin-inline: auto;
+    max-width: none;
+    margin: 0;
     zoom: calc(100vw / 320);
   }
 }
@@ -1127,7 +1132,7 @@ a {
     .page {
       zoom: unset;
       transform: scale(calc(100vw / 320));
-      transform-origin: top center;
+      transform-origin: top left;
     }
   }
 }
