@@ -1110,97 +1110,64 @@ a {
 
 @media (max-width: 400px) {
   :root {
-    /* 288px = content width inside the 320 frame (16px gutters each side) */
-    --fluid: calc((100vw - 32px) / 288);
-    --section-x: 0px;
-    --title-size: calc(24px * var(--fluid));
-    --title-tracking: calc(-0.72px * var(--fluid));
-    --section-pt: calc(32px * var(--fluid));
-    --section-title-mb: calc(16px * var(--fluid));
-    --hero-pt: calc(16px * var(--fluid));
-    --hero-title-pb: calc(8px * var(--fluid));
-    --hero-title-size: calc(26px * var(--fluid));
-    --hero-title-tracking: calc(-1.3px * var(--fluid));
-    --hero-aside-gap: calc(16px * var(--fluid));
-    --hero-logo-width: calc(261px * var(--fluid));
-    --hero-logo-pair-width: calc(131px * var(--fluid));
-    --hero-logo-circle: calc(72px * var(--fluid));
-    --hero-logo-photo-offset: calc(59px * var(--fluid));
-    --hero-awards-size: calc(10px * var(--fluid));
-    --hero-desc-pt: calc(32px * var(--fluid));
-    --hero-desc-pb: calc(32px * var(--fluid));
-    --hero-desc-text: calc(12px * var(--fluid));
-    --hero-desc-padding: calc(16px * var(--fluid));
-    --nav-pt: calc(16px * var(--fluid));
-    --radius-soft: calc(24px * var(--fluid));
-    --radius-btn: calc(33px * var(--fluid));
-    --case-list-gap: calc(12px * var(--fluid));
-    --pub-grid-gap-x: calc(8px * var(--fluid));
-    --pub-card-h: calc(280px * var(--fluid));
-    --pub-image-h: calc(140px * var(--fluid));
-    --pub-text-p: calc(16px * var(--fluid));
-    --pub-title-size: calc(14px * var(--fluid));
-    --pub-title-tracking: calc(-0.42px * var(--fluid));
-    --pub-title-max-w: calc(208px * var(--fluid));
-    --pub-meta-size: calc(10px * var(--fluid));
-    --pub-meta-tracking: calc(-0.3px * var(--fluid));
-    --link-gap: calc(8px * var(--fluid));
-    --link-icon: calc(75px * var(--fluid));
-    --link-icon-offset: calc(16px * var(--fluid));
-    --link-text-size: calc(10px * var(--fluid));
-    --link-text-tracking: calc(-0.3px * var(--fluid));
-    --link-text-w: calc(109px * var(--fluid));
-    --footer-pt: calc(56px * var(--fluid));
+    /* 288px content width inside the 320 Figma frame (16px gutters).
+       Scale: N * (100vw - 32px) / 288 — N is unitless so the result stays in px. */
+    --title-size: calc(24 * (100vw - 32px) / 288);
+    --title-tracking: calc(-0.72 * (100vw - 32px) / 288);
+    --section-pt: calc(32 * (100vw - 32px) / 288);
+    --section-title-mb: calc(16 * (100vw - 32px) / 288);
+    --hero-pt: calc(16 * (100vw - 32px) / 288);
+    --hero-title-pb: calc(8 * (100vw - 32px) / 288);
+    --hero-title-size: calc(26 * (100vw - 32px) / 288);
+    --hero-title-tracking: calc(-1.3 * (100vw - 32px) / 288);
+    --hero-aside-gap: calc(16 * (100vw - 32px) / 288);
+    --hero-logo-width: calc(261 * (100vw - 32px) / 288);
+    --hero-logo-pair-width: calc(131 * (100vw - 32px) / 288);
+    --hero-logo-circle: calc(72 * (100vw - 32px) / 288);
+    --hero-logo-photo-offset: calc(59 * (100vw - 32px) / 288);
+    --hero-awards-size: calc(10 * (100vw - 32px) / 288);
+    --hero-desc-pt: calc(32 * (100vw - 32px) / 288);
+    --hero-desc-pb: calc(32 * (100vw - 32px) / 288);
+    --hero-desc-text: calc(12 * (100vw - 32px) / 288);
+    --hero-desc-padding: calc(16 * (100vw - 32px) / 288);
+    --nav-pt: calc(16 * (100vw - 32px) / 288);
+    --radius-soft: calc(24 * (100vw - 32px) / 288);
+    --radius-btn: calc(33 * (100vw - 32px) / 288);
+    --case-list-gap: calc(12 * (100vw - 32px) / 288);
+    --pub-grid-gap-x: calc(8 * (100vw - 32px) / 288);
+    --pub-card-h: calc(280 * (100vw - 32px) / 288);
+    --pub-image-h: calc(140 * (100vw - 32px) / 288);
+    --pub-text-p: calc(16 * (100vw - 32px) / 288);
+    --pub-title-size: calc(14 * (100vw - 32px) / 288);
+    --pub-title-tracking: calc(-0.42 * (100vw - 32px) / 288);
+    --pub-title-max-w: calc(208 * (100vw - 32px) / 288);
+    --pub-meta-size: calc(10 * (100vw - 32px) / 288);
+    --pub-meta-tracking: calc(-0.3 * (100vw - 32px) / 288);
+    --link-gap: calc(8 * (100vw - 32px) / 288);
+    --link-icon: calc(75 * (100vw - 32px) / 288);
+    --link-icon-offset: calc(16 * (100vw - 32px) / 288);
+    --link-text-size: calc(10 * (100vw - 32px) / 288);
+    --link-text-tracking: calc(-0.3 * (100vw - 32px) / 288);
+    --link-text-w: calc(109 * (100vw - 32px) / 288);
+    --footer-pt: calc(56 * (100vw - 32px) / 288);
   }
 
-  body {
-    overflow-x: hidden;
-  }
-
-  .page {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    padding-inline: 16px;
-    box-sizing: border-box;
-  }
-
-  .nav {
-    margin-inline: -16px;
-    padding-inline: 16px;
-  }
-
-  .block-description,
-  .text-footer {
-    margin-inline: -16px;
-    padding-inline: 16px;
-  }
-
-  .section-title,
-  .section:not(.section-publications):not(.section-showcase) {
-    padding-inline: 0;
-  }
-
-  .section.section-publications {
-    margin-right: -16px;
-  }
-
-  .section-publications .section-title,
-  .section-publications .pub-grid {
-    padding-left: 0;
+  .hero-logo__photo {
+    width: var(--hero-logo-circle, 72px);
+    height: var(--hero-logo-circle, 72px);
   }
 
   .hero-awards {
-    max-width: calc(102px * var(--fluid));
+    max-width: calc(102 * (100vw - 32px) / 288);
   }
 
   .section-publications .pub-card {
-    flex: 0 0 calc(240px * var(--fluid));
-    width: calc(240px * var(--fluid));
+    flex: 0 0 calc(240 * (100vw - 32px) / 288);
+    width: calc(240 * (100vw - 32px) / 288);
   }
 
   .section-publications .pub-card .pub-image,
   .section-publications .pub-card .pub-text {
-    border-radius: calc(24px * var(--fluid));
+    border-radius: calc(24 * (100vw - 32px) / 288);
   }
 }
