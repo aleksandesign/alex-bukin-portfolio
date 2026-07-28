@@ -252,12 +252,6 @@
     --case-footer-pb: calc(24 * (100vw - 32px) / 288);
   }
 
-  .case-page .case-nav .nav-pill {
-    font-size: calc(14 * (100vw - 32px) / 288);
-    letter-spacing: calc(-0.28 * (100vw - 32px) / 288);
-    padding: calc(10 * (100vw - 32px) / 288) calc(16 * (100vw - 32px) / 288);
-  }
-
   .text-header .block-hero {
     padding-bottom: calc(8 * (100vw - 32px) / 288);
   }
