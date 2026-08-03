@@ -666,6 +666,11 @@ a {
   aspect-ratio: var(--case-ref-w) / var(--case-ref-h);
 }
 
+a.case-card {
+  text-decoration: none;
+  color: inherit;
+}
+
 .case-content {
   display: flex;
   flex-direction: column;
