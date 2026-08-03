@@ -890,6 +890,18 @@
     padding-top: var(--case-space-16);
   }
 
+  /* Figma mobile: adjacent text blocks abut — spacing from one side only */
+  .text-main-block:has(+ .text-head-block) .text-main,
+  .text-main-block:has(+ .text-main-block) .text-main,
+  .text-card__body > .text-main:has(+ .text-head.text-head--sub),
+  .text-card__body > .text-main:has(+ .text-main) {
+    padding-bottom: 0;
+  }
+
+  .text-head-block:has(.text-head--section) + .text-card .text-card__body > .text-main:first-child {
+    padding-top: 0;
+  }
+
   .text-card__body > .text-main:last-child,
   .text-card__body > .text-head.text-head--sub:last-child {
     padding-bottom: var(--case-space-16);
