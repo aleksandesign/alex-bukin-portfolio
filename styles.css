@@ -882,6 +882,18 @@ a.case-card {
   object-position: center;
 }
 
+@media (min-width: 769px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .case-visual img {
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.35, 1);
+    transform: scale(1);
+  }
+
+  a.case-card:hover .case-visual img,
+  a.case-card:focus-visible .case-visual img {
+    transform: scale(1.08);
+  }
+}
+
 /* Publications */
 
 .pub-grid {
@@ -1364,5 +1376,56 @@ a.case-card {
     line-height: 1;
     padding-bottom: 0.06em;
     margin-bottom: -0.06em;
+  }
+}
+
+/* Custom cursor ring follows the default pointer (desktop) */
+@media (min-width: 769px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .site-cursor {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10000;
+  }
+
+  .site-cursor__ring {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(12px) saturate(165%);
+    -webkit-backdrop-filter: blur(12px) saturate(165%);
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    box-shadow:
+      0 6px 20px rgba(44, 44, 44, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(44, 44, 44, 0.02);
+    opacity: 0;
+    transition:
+      opacity 0.25s ease,
+      width 0.3s cubic-bezier(0.25, 1, 0.35, 1),
+      height 0.3s cubic-bezier(0.25, 1, 0.35, 1),
+      background-color 0.3s ease,
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+    will-change: transform, width, height;
+  }
+
+  .site-cursor.is-visible .site-cursor__ring {
+    opacity: 1;
+  }
+
+  .site-cursor.is-hover .site-cursor__ring {
+    width: 72px;
+    height: 72px;
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.42);
+    box-shadow:
+      0 10px 28px rgba(44, 44, 44, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.48),
+      inset 0 -1px 0 rgba(44, 44, 44, 0.03);
   }
 }
