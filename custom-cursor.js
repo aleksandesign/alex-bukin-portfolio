@@ -11,9 +11,18 @@
   root.className = "site-cursor";
   root.setAttribute("aria-hidden", "true");
 
+  const follower = document.createElement("div");
+  follower.className = "site-cursor__follower";
+
+  const dot = document.createElement("div");
+  dot.className = "site-cursor__dot";
+
   const ring = document.createElement("div");
   ring.className = "site-cursor__ring";
-  root.appendChild(ring);
+
+  follower.appendChild(ring);
+  follower.appendChild(dot);
+  root.appendChild(follower);
   document.body.appendChild(root);
 
   const INTERACTIVE =
@@ -66,7 +75,7 @@
   function tick() {
     x += (targetX - x) * 0.18;
     y += (targetY - y) * 0.18;
-    ring.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+    follower.style.transform = `translate3d(${x}px, ${y}px, 0)`;
     requestAnimationFrame(tick);
   }
 
