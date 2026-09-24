@@ -517,6 +517,8 @@ a {
 @media (min-width: 1921px) {
   :root {
     --title-size: 100px;
+    --cv-font-size: 24px;
+    --cv-tracking: -0.72px;
     --hero-pt: 100px;
     --hero-aside-pt: 0;
     --hero-logo-pair-width: 281px;
