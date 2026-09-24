@@ -515,6 +515,18 @@ a {
 }
 
 @media (min-width: 1921px) {
+  :root {
+    --hero-pt: 100px;
+    --hero-aside-pt: 0;
+    --hero-logo-pair-width: 281px;
+    --hero-logo-circle: 155px;
+    --hero-logo-photo-offset: 126px;
+    --hero-logo-pair-mt: 94px;
+    --hero-logo-block-min-h: 384px;
+    --hero-awards-mt: 33px;
+    --hero-awards-size: 14px;
+  }
+
   .hero {
     container-type: inline-size;
   }
@@ -531,6 +543,15 @@ a {
       )
     );
     letter-spacing: -0.05em;
+  }
+
+  .hero-logo__photo {
+    left: var(--hero-logo-photo-offset);
+    right: auto;
+  }
+
+  .link-card {
+    border-radius: min(100px, calc(100 / 416 * 100cqw));
   }
 }
 
