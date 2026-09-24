@@ -516,6 +516,7 @@ a {
 
 @media (min-width: 1921px) {
   :root {
+    --title-size: 100px;
     --hero-pt: 100px;
     --hero-aside-pt: 0;
     --hero-logo-pair-width: 281px;
@@ -552,6 +553,21 @@ a {
 
   .link-card {
     border-radius: min(100px, calc(100 / 416 * 100cqw));
+  }
+
+  .section-title {
+    font-size: min(100px, var(--title-size));
+  }
+
+  .case-body h3 {
+    font-size: min(
+      100px,
+      calc(var(--case-ref-title) / var(--case-ref-w) * 100cqw)
+    );
+  }
+
+  .pub-text h3 {
+    font-size: min(100px, var(--pub-title-size));
   }
 }
 
