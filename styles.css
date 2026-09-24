@@ -519,6 +519,11 @@ a {
     --title-size: 100px;
     --cv-font-size: 24px;
     --cv-tracking: -0.72px;
+    --download-gap: 19px;
+    --download-btn-px: 24px;
+    --download-btn-py: 8px;
+    --download-btn-size: 32px;
+    --download-btn-tracking: -0.96px;
     --hero-pt: 100px;
     --hero-aside-pt: 0;
     --hero-logo-pair-width: 281px;
