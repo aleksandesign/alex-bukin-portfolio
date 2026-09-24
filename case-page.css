@@ -440,6 +440,14 @@
   border-radius: 0;
 }
 
+.text-metrics-block .metrics-text.metrics-text--3col {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.text-metrics-block .metrics-text.metrics-text--cosmetic {
+  background: #ffc7ec;
+}
+
 .text-metrics-block .metrics-text {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
