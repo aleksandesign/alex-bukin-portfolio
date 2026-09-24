@@ -29,6 +29,8 @@
   --hero-aside-pt: 144px;
   --hero-title-size: 170px;
   --hero-title-tracking: -8.5px;
+  --hero-inner-gap: 64px;
+  --hero-title-ref-col: calc(var(--content-width) - var(--hero-aside-width) - var(--hero-inner-gap));
   --hero-aside-width: 417px;
   --hero-aside-gap: 89px;
   --hero-logo-width: 417px;
@@ -78,8 +80,10 @@
   --pub-meta-size: 24px;
   --pub-meta-tracking: -0.72px;
   --link-gap: 21px;
-  --link-icon: 170px;
-  --link-icon-offset: 64px;
+  --link-icon-num: 170;
+  --link-icon-den: 416;
+  --link-offset-num: 64;
+  --link-offset-den: 416;
   --link-text-size: 24px;
   --link-text-tracking: -0.72px;
   --link-text-w: 272px;
@@ -93,6 +97,11 @@
     minmax(0, 417fr) minmax(0, 384fr) minmax(0, 134fr);
   --cv-font-size: 32px;
   --cv-tracking: -0.96px;
+  --download-gap: 40px;
+  --download-btn-px: 56px;
+  --download-btn-py: 32px;
+  --download-btn-size: 48px;
+  --download-btn-tracking: -1.44px;
   --footer-pt: 144px;
   --footer-pb: 86px;
 }
@@ -108,8 +117,8 @@
     --header-pt: 0;
     --hero-pt: 100px;
     --hero-aside-pt: 0;
-    --hero-title-size: 96px;
-    --hero-title-tracking: -5.6px;
+    --hero-title-size: 88px;
+    --hero-title-tracking: -4.4px;
     --hero-aside-width: 417px;
     --hero-aside-gap: 89px;
     --hero-logo-width: 417px;
@@ -159,8 +168,10 @@
     --pub-meta-size: 16px;
     --pub-meta-tracking: -0.48px;
     --link-gap: 20px;
-    --link-icon: 70px;
-    --link-icon-offset: 48px;
+    --link-icon-num: 170;
+    --link-icon-den: 416;
+    --link-offset-num: 48;
+    --link-offset-den: 270;
     --link-text-size: 16px;
     --link-text-tracking: -0.48px;
     --link-text-w: 206px;
@@ -174,6 +185,11 @@
       minmax(0, 417fr) minmax(0, 92fr) minmax(0, 134fr);
     --cv-font-size: 16px;
     --cv-tracking: -0.48px;
+    --download-gap: 19px;
+    --download-btn-px: 24px;
+    --download-btn-py: 8px;
+    --download-btn-size: 32px;
+    --download-btn-tracking: -0.96px;
     --footer-pt: 72px;
     --footer-pb: 86px;
   }
@@ -241,8 +257,10 @@
     --pub-meta-size: 14px;
     --pub-meta-tracking: -0.42px;
     --link-gap: 16px;
-    --link-icon: 100px;
-    --link-icon-offset: 32px;
+    --link-icon-num: 100;
+    --link-icon-den: 204;
+    --link-offset-num: 32;
+    --link-offset-den: 204;
     --link-text-size: 14px;
     --link-text-tracking: -0.42px;
     --link-text-w: 141px;
@@ -255,6 +273,11 @@
       minmax(0, 320fr) minmax(0, 385fr) minmax(0, 385fr) minmax(0, 134fr);
     --cv-font-size: 16px;
     --cv-tracking: -0.48px;
+    --download-gap: 20px;
+    --download-btn-px: 20px;
+    --download-btn-py: 10px;
+    --download-btn-size: 24px;
+    --download-btn-tracking: -0.72px;
     --footer-pt: 56px;
     --footer-pb: 86px;
   }
@@ -322,8 +345,10 @@
     --pub-meta-size: 10px;
     --pub-meta-tracking: -0.3px;
     --link-gap: 8px;
-    --link-icon: 75px;
-    --link-icon-offset: 16px;
+    --link-icon-num: 75;
+    --link-icon-den: 140;
+    --link-offset-num: 16;
+    --link-offset-den: 140;
     --link-text-size: 10px;
     --link-text-tracking: -0.3px;
     --link-text-w: 109px;
@@ -336,6 +361,11 @@
       minmax(0, 86fr) minmax(0, 107fr) minmax(0, 135fr);
     --cv-font-size: 10px;
     --cv-tracking: -0.3px;
+    --download-gap: 4px;
+    --download-btn-px: 8px;
+    --download-btn-py: 4px;
+    --download-btn-size: 10px;
+    --download-btn-tracking: -0.3px;
     --footer-pt: 56px;
     --footer-pb: 0;
   }
@@ -466,7 +496,7 @@ a {
   align-items: flex-start;
   width: var(--content-width);
   max-width: 100%;
-  gap: 64px;
+  gap: var(--hero-inner-gap);
 }
 
 .hero-title {
@@ -478,6 +508,30 @@ a {
   font-weight: 600;
   line-height: 1;
   letter-spacing: var(--hero-title-tracking);
+}
+
+.hero-title__line {
+  display: block;
+}
+
+@media (min-width: 1921px) {
+  .hero {
+    container-type: inline-size;
+  }
+
+  .hero-title__line {
+    white-space: nowrap;
+  }
+
+  .hero-title {
+    font-size: min(
+      var(--hero-title-size),
+      calc(
+        (100cqw - var(--hero-aside-width) - var(--hero-inner-gap)) / var(--hero-title-ref-col) * var(--hero-title-size)
+      )
+    );
+    letter-spacing: -0.05em;
+  }
 }
 
 .hero-aside {
@@ -593,6 +647,39 @@ a {
 }
 
 /* CV */
+
+.download {
+  display: flex;
+  align-items: center;
+  gap: var(--download-gap);
+  width: var(--content-width);
+  max-width: 100%;
+  margin-bottom: var(--section-title-mb);
+}
+
+.download .section-title {
+  margin-bottom: 0;
+}
+
+.btn-download {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  background: var(--ab-black);
+  color: var(--ab-white-bg);
+  border-radius: var(--radius-btn);
+  padding: var(--download-btn-py) var(--download-btn-px);
+  font-size: var(--download-btn-size);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: var(--download-btn-tracking);
+  text-decoration: none;
+  transition: opacity 0.25s;
+}
+
+.btn-download:hover {
+  opacity: 0.85;
+}
 
 .cv-card {
   width: var(--content-width);
@@ -827,6 +914,7 @@ a.case-card {
 }
 
 .link-card {
+  container-type: inline-size;
   position: relative;
   width: 100%;
   aspect-ratio: 1;
@@ -839,21 +927,31 @@ a.case-card {
   transform: translateY(-4px);
 }
 
-.link-card img {
+.link-card__icon {
   position: absolute;
-  top: var(--link-icon-offset);
-  left: var(--link-icon-offset);
-  width: var(--link-icon);
-  height: var(--link-icon);
+  top: calc(var(--link-offset-num) / var(--link-offset-den) * 100cqw);
+  left: calc(var(--link-offset-num) / var(--link-offset-den) * 100cqw);
+  width: calc(var(--link-icon-num) / var(--link-icon-den) * 100cqw);
+  height: calc(var(--link-icon-num) / var(--link-icon-den) * 100cqw);
   display: block;
   object-fit: contain;
 }
 
+@media (min-width: 1441px) and (max-width: 1920px) {
+  .link-card--behance {
+    --link-icon-num: 100;
+    --link-icon-den: 270;
+  }
+}
+
 .link-card p {
   position: absolute;
-  left: var(--link-icon-offset);
-  bottom: var(--link-icon-offset);
-  width: min(var(--link-text-w), calc(100% - var(--link-icon-offset) * 2));
+  left: calc(var(--link-offset-num) / var(--link-offset-den) * 100cqw);
+  bottom: calc(var(--link-offset-num) / var(--link-offset-den) * 100cqw);
+  width: min(
+    var(--link-text-w),
+    calc(100% - (var(--link-offset-num) / var(--link-offset-den) * 100cqw) * 2)
+  );
   font-size: var(--link-text-size);
   font-weight: 500;
   line-height: 1.2;
@@ -1141,11 +1239,14 @@ a.case-card {
     --pub-meta-size: calc(10 * (100vw - 32px) / 288);
     --pub-meta-tracking: calc(-0.3 * (100vw - 32px) / 288);
     --link-gap: calc(8 * (100vw - 32px) / 288);
-    --link-icon: calc(75 * (100vw - 32px) / 288);
-    --link-icon-offset: calc(16 * (100vw - 32px) / 288);
     --link-text-size: calc(10 * (100vw - 32px) / 288);
     --link-text-tracking: calc(-0.3 * (100vw - 32px) / 288);
     --link-text-w: calc(109 * (100vw - 32px) / 288);
+    --download-gap: calc(4 * (100vw - 32px) / 288);
+    --download-btn-px: calc(8 * (100vw - 32px) / 288);
+    --download-btn-py: calc(4 * (100vw - 32px) / 288);
+    --download-btn-size: calc(10 * (100vw - 32px) / 288);
+    --download-btn-tracking: calc(-0.3 * (100vw - 32px) / 288);
     --footer-pt: calc(56 * (100vw - 32px) / 288);
   }
 
