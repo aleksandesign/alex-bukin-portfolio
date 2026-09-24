@@ -371,8 +371,17 @@
   }
 }
 
-html {
-  scroll-behavior: smooth;
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
 }
 
 body {
@@ -1311,5 +1320,49 @@ a.case-card {
   .section-publications .pub-card .pub-image,
   .section-publications .pub-card .pub-text {
     border-radius: calc(24 * (100vw - 32px) / 288);
+  }
+}
+
+/* Heading reveal (desktop / tablet, JS adds .reveal-headings on html) */
+@media (min-width: 769px) {
+  html.reveal-headings .reveal-mask {
+    overflow: hidden;
+    vertical-align: top;
+  }
+
+  html.reveal-headings .reveal-mask--inline {
+    display: inline-block;
+  }
+
+  html.reveal-headings .reveal-mask--block {
+    display: block;
+  }
+
+  html.reveal-headings .reveal-mask__inner {
+    display: block;
+    transform: translate3d(0, 110%, 0);
+    transition-property: transform;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+
+  html.reveal-headings .reveal-heading.is-inview .reveal-mask__inner {
+    transform: translate3d(0, 0, 0);
+  }
+
+  html.reveal-headings .hero-title__line.reveal-heading--line {
+    display: block;
+  }
+
+  /* Descenders (g, y, p) need extra room inside overflow masks */
+  html.reveal-headings .hero-title__line .reveal-mask--block {
+    padding-bottom: 0.18em;
+    margin-bottom: -0.18em;
+  }
+
+  html.reveal-headings .hero-title__line .reveal-mask__inner {
+    line-height: 1;
+    padding-bottom: 0.06em;
+    margin-bottom: -0.06em;
   }
 }
