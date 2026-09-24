@@ -909,11 +909,6 @@ a.case-card {
   height: var(--pub-card-h);
   position: relative;
   background: transparent;
-  transition: transform 0.25s;
-}
-
-.pub-card:hover {
-  transform: translateY(-4px);
 }
 
 .pub-image {
@@ -933,6 +928,14 @@ a.case-card {
   object-position: center;
   display: block;
   border-radius: var(--radius-soft);
+}
+
+.section-publications .pub-image img {
+  transition: opacity 0.25s;
+}
+
+.section-publications .pub-image:hover img {
+  opacity: 0.85;
 }
 
 .pub-text {
@@ -985,11 +988,14 @@ a.case-card {
   aspect-ratio: 1;
   background: var(--ab-white-bg);
   border-radius: var(--radius-soft);
-  transition: transform 0.25s;
 }
 
-.link-card:hover {
-  transform: translateY(-4px);
+.section-links .link-card {
+  transition: opacity 0.25s;
+}
+
+.section-links .link-card:hover {
+  opacity: 0.85;
 }
 
 .link-card__icon {
